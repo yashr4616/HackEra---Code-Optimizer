@@ -4,7 +4,7 @@ import pickle
 
 # Create flask app
 flask_app = Flask(__name__)
-model = pickle.load(open("model.pkl", "rb"))
+model = pickle.load(open("predictive_maintenance_model.pkl", "rb"))
 
 @flask_app.route("/")
 def Home():
@@ -15,7 +15,7 @@ def predict():
     float_features = [float(x) for x in request.form.values()]
     features = [np.array(float_features)]
     prediction = model.predict(features)
-    return render_template("index.html", prediction_text = "The flower species is {}".format(prediction))
+    return render_template("index.html", prediction_text = "Maintenance needed is {}".format(prediction))
 
 if __name__ == "__main__":
     flask_app.run(debug=True)

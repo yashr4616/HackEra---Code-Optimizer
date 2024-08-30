@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpKeep AI</title>
+    <link rel="stylesheet" href="../index.css">
+</head>
+
+<body>
+    <div class="main">
+        <nav>
+            <div class="main_nav">
+                <div class="logo">
+                    <a href=""><img src="UpKeepo .png" id="comp_logo" alt="logo"></a>
+                </div>
+                <div class="menu">
+                    <a href="">
+                        <div class="options home">Home</div>
+                    </a>
+                    <a href="">
+                        <div class="options about">About Us</div>
+                    </a>
+                    <a href="">
+                        <div class="options service">Model</div>
+                    </a>
+                    <a href="">
+                        <div class="options team">Our Team</div>
+                    </a>
+                </div>
+
+                <div class="menu-dropdown">
+                    <div class="col">
+                        <div class="con">
+                            <div class="bar top"></div>
+                            <div class="bar middle"></div>
+                            <div class="bar bottom"></div>
+                        </div>
+                    </div>
+                    <div class="menu-content hidden">
+                        <ul>
+                            <a>
+                                <li>HOME</li>
+                            </a>
+                            <a>
+                                <li>ABOUT</li>
+                            </a>
+                            <a>
+                                <li>OUR TEAM</li>
+                            </a>
+                            <a>
+                                <li>CONTACT</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <section class="model">
+            <h2>Model</h2>
+            <form action="" method="post">
+                <label for="air_temperature">Enter Air Temperature:</label>
+                <input type="text" id="air_temperature" name="air_temperature"><br><br>
+
+                <label for="process_temperature">Enter Process Temperature:</label>
+                <input type="text" id="process_temperature" name="process_temperature"><br><br>
+
+                <label for="rotational_speed">Enter Rotational Speed:</label>
+                <input type="text" id="rotational_speed" name="rotational_speed"><br><br>
+
+                <label for="torque">Enter Torque:</label>
+                <input type="text" id="torque" name="torque"><br><br>
+
+                <label for="tool_wear">Enter Tool Wear:</label>
+                <input type="text" id="tool_wear" name="tool_wear"><br><br>
+
+
+                <div class="machine_type">
+                    <label for="machine_type">Enter Type:</label>
+                    <input type="radio" id="machine_type" name="machine_type">Large<br><br>
+                    <input type="radio" id="machine_type" name="machine_type">Medium<br><br>
+                    <input type="radio" id="machine_type" name="machine_type">Small<br><br>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+
+
+            {% if prediction_text %}
+            <h2>{ prediction_text }</h2>
+            {% endif %}
+        </section>
+    </div>
+
+    <script src="../index.js"></script>
+</body>
+
+</html>
