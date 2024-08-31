@@ -3,14 +3,24 @@
     color: rgb(0, 0, 0);
     font-family: Helvetica, sans-serif;
     font-size: large;
+    zoom: 0.95;
+    padding: 0;
+    margin: 0;
+}
+nav{
+    background-color: #A3E3FA;
 }
 
 .main_nav {
-
+    background-color: #A3E3FA;
     margin-left: 5px;
     width: 97%;
     display: flex;
     top: 0px;
+}
+
+.main_nav a{
+    background-color:#A3E3FA
 }
 
 
@@ -18,18 +28,20 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
+    background-color: #A3E3FA;
 }
 
 #comp_logo {
     width: 200px;
     height: 90px;
+    background-color: #A3E3FA;
 }
 
 #submit_single_data ,#submit_upload_csv{
     margin-top: 30px;
     padding: 10px;
-    background-color: #00FFFF;
-    color: rgb(255, 255, 255);
+    background-color: #A3E3FA;
+    color: rgb(0, 0, 0);
     border-radius: 20px;
     width: 121px;
 }
@@ -48,6 +60,7 @@
     font-size: large;
     transition: color 250ms ease-out 78ms;
     color: #808080;
+    background-color: #A3E3FA;
 }
 
 
@@ -87,6 +100,10 @@
     cursor: pointer;
 }
 
+form{
+    margin-top: 35px;
+}
+
 .dropdown {
     display: none;
 }
@@ -95,13 +112,14 @@
     display: none;
 }
 
+.model_name_type{
+    font-size: 25px;
+}
 
 
 
 .model {
     display: flex;
-    align-content: center;
-    flex-wrap: wrap;
     flex-direction: column;
 }
 
@@ -112,13 +130,14 @@
 }
 
 .content{
-    margin-top: 83px;
+    margin-top: 45px;
 }
 
 .model_main {
     display: flex;
     justify-content: center;
     gap: 245px;
+    padding-top: 47px
     
 }
 
@@ -133,7 +152,7 @@
 
 #center_line{
     width: 6px;
-    height: 587px;
+    height: 547px;
     background-color: rgb(0, 0, 0) !important;
     border-radius: 40px;
     position: relative;
@@ -142,7 +161,7 @@
 
 .options_machinetype{
     display: flex;
-    gap: 5px;
+    gap: 8px;
 }
 
 
@@ -153,7 +172,7 @@
 }
 
 
-.content h2{
+#model_name{
     font-size: 55px;
     margin-left: 48px;
 }

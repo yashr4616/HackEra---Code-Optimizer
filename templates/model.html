@@ -13,20 +13,17 @@
         <nav>
             <div class="main_nav">
                 <div class="logo">
-                    <a href=""><img src="../static/images/UpKeepo .png" id="comp_logo" alt="logo"></a>
+                    <a href=""><img src="../static/images/UpKeepo__2__2_-removebg-preview.png" id="comp_logo" alt="logo"></a>
                 </div>
                 <div class="menu">
-                    <a href="">
+                    <a href="/home">
                         <div class="options home">Home</div>
                     </a>
-                    <a href="">
+                    <a href="/about">
                         <div class="options about">About Us</div>
                     </a>
-                    <a href="">
+                    <a href="/model">
                         <div class="options service">Model</div>
-                    </a>
-                    <a href="">
-                        <div class="options team">Our Team</div>
                     </a>
                 </div>
 
@@ -58,10 +55,10 @@
             </div>
         </nav>
         <div class="content">
-            <h2>Model</h2>
+            <h2 id="model_name">Model</h2>
             <section class="model_main">
                 <section class="model">
-
+                    <h2 class="model_name_type">Single Equipment Analysis</h2>
                     <form action="/predict" method="post">
                         <label for="air_temperature">Enter Air Temperature:</label>
                         <input type="text" id="air_temperature" name="air_temperature" required><br><br>
@@ -102,6 +99,7 @@
                 </section>
                 <div id="center_line"></div>
                 <section>
+                    <h2 class="model_name_type">Multiple Equipment Analysis</h2>
                     <form action="/upload" method="post" enctype="multipart/form-data">
 
                         <div class="container">
@@ -112,7 +110,7 @@
                                   <h4>Select File here</h4>
                                 </header>
                                 <p>Files Supported: CSV</p>
-                                <input type="file" hidden accept=".csv" id="upload_csv" style="display:none;">
+                                <input type="file" hidden accept=".csv" name="file" id="upload_csv" style="display:none;">
                                 <label for="upload_csv" class="btn">Choose File</label>
                                 <p id="file_name">No file chosen</p>
                               </div>

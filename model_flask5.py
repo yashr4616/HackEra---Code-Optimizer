@@ -25,6 +25,7 @@ def allowed_file(filename):
 @app.route("/", methods=["GET"])
 def Home():
     return render_template("model.html")
+<<<<<<< Updated upstream:model_flask5.py
 
 @app.route("/about")
 def abt():
@@ -33,6 +34,8 @@ def abt():
 # @app.route("/download")
 # def dl():
 #     return render_template("download.html")
+=======
+>>>>>>> Stashed changes:model_flask1.py
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -71,17 +74,18 @@ def predict():
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
-    print("Upload Function Reached")
     if request.method == 'POST':
         try:
             # Check if the request has a file part
             if 'file' not in request.files:
+                print("No file part")
                 return redirect(request.url)
             
             file = request.files['file']
 
             # If no file is selected
             if file.filename == '':
+                print("No selected file")
                 return redirect(request.url)
 
             # If a file is selected and it's allowed
@@ -89,6 +93,7 @@ def upload_file():
                 filename = secure_filename(file.filename)
                 file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 file.save(file_path)
+                print(f"File saved at {file_path}")
 
                 # Read the CSV file using pandas
                 data = pd.read_csv(file_path)
@@ -99,44 +104,41 @@ def upload_file():
 
                 # Predict using the model
                 prediction = model_pipeline.predict(data)
-                print(prediction)
 
-                # Add the predictions to the DataFrame
-
-                word_prediction = []
-
-
+                # Convert numerical predictions to readable labels
                 failure_types = ["Heat Dissipation", "No Failure", "Over Strain", "Power Failure", "Random Failure", "Tool Wear Failure"]
-
-                for i in prediction:
-                    word_prediction.append(failure_types[i])
-
-
-
-                print(word_prediction)
-    
-                data['Predicted_Value'] = word_prediction
-
+                data['Predicted_Value'] = [failure_types[i] for i in prediction]
 
                 # Save the DataFrame with predictions to a new CSV file
                 output_filename = 'output_' + filename
                 output_filepath = os.path.join(app.config['UPLOAD_FOLDER'], output_filename)
-                print(f"Saving file to: {output_filepath}")  # Add this line for debugging
                 data.to_csv(output_filepath, index=False)
+                print(f"Output file saved at {output_filepath}")
+
+                # Check if the file exists before redirecting
+                if os.path.exists(output_filepath):
+                    print(f"File exists: {output_filepath}")
+                else:
+                    print("File does not exist!")
 
                 # Redirect to the download page
-                print(f"Redirecting to download page for file: {output_filename}")
                 return redirect(url_for('download_file', filename=output_filename))
 
         except Exception as e:
-            print(e)
-            return render_template("upload.html", error="An error occurred while processing the file. Please ensure it's a valid CSV.")
+            print(f"Error: {e}")
+            return render_template("model.html", error="An error occurred while processing the file. Please ensure it's a valid CSV.")
 
-    return render_template("upload.html")
+    return render_template("model.html")
 
 @app.route('/uploads/<filename>')
 def download_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    try:
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        print(f"Attempting to download file from {file_path}")
+        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
+    except Exception as e:
+        print(f"Download error: {e}")
+        return render_template("model.html", error="File not found or an error occurred while trying to download the file.")
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=100)
