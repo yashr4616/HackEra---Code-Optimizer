@@ -86,10 +86,17 @@
                     </div>
                     <div class="result">
                         <canvas id="myChart"></canvas>
-                        <div class="prediction">
+                        <div class="pred_eff">
+                        <div class="prediction" style="margin-top: 17px">
                             <h3>Prediction</h3><br>
                             <p>The need for maintenance is: {{ prediction_text }}</p>
                         </div>
+                        <div class="efficiency" style="margin-top: 67px;">
+                            <h3>Effectiveness</h3><br>
+                            <p>{{ efficiency_text }}</p>
+                            <p>Effectiveness Left:-{{ efficiency }}%</p>
+                        </div>
+                    </div>
 
                     </div>
                 </div>

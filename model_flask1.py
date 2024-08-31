@@ -92,6 +92,18 @@ def dashboard():
     machine_type = request.args.get('machine_type', type=str)
     prediction_text = request.args.get('prediction_text', type=str)
 
+
+    efficiency = 100-(tool_wear/2.5)
+    efficiency_text=""
+    if(prediction_text == "No"):
+        if (efficiency <= 35):
+            efficiency_text = "Change of Tools required"
+        elif(efficiency >=35 and efficiency<=60):
+            efficiency_text = "Monitor Tools"
+        else:
+            efficiency_text= "Everything is working fine."
+
+
     return render_template('dashboard.html', 
                            air_temperature=air_temperature,
                            process_temperature=process_temperature,
@@ -99,7 +111,9 @@ def dashboard():
                            torque=torque,
                            tool_wear=tool_wear,
                            machine_type=machine_type,
-                           prediction_text=prediction_text)
+                           prediction_text=prediction_text,
+                           efficiency_text = efficiency_text,
+                           efficiency = efficiency)
 
 
 @app.route('/upload', methods=['GET', 'POST'])

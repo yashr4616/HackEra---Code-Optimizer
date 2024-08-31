@@ -140,7 +140,7 @@
     background-color: #f8a559;
     border-radius: 20px;
     height: 242px;
-    width: 719px;
+    width: 756px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -187,9 +187,11 @@
 
 }
 #myChart{
-    height: 151px !important;
+    height: 242px !important;
     width: 431px !important;
-    background-color: white ;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
 }
 
 .pie_chart {
