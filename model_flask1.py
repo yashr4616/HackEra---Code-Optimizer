@@ -24,7 +24,15 @@ def allowed_file(filename):
 
 @app.route("/", methods=["GET"])
 def Home():
-    return render_template("index.html")
+    return render_template("model.html")
+
+@app.route("/about")
+def abt():
+    return render_template("about_us.html")
+
+# @app.route("/download")
+# def dl():
+#     return render_template("download.html")
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -57,9 +65,9 @@ def predict():
 
     except ValueError as e:
         # Handle conversion error or missing data
-        return render_template("index.html", prediction_text="Input error: Please enter valid numeric values for all fields.")
+        return render_template("model.html", prediction_text="Input error: Please enter valid numeric values for all fields.")
 
-    return render_template("index.html", prediction_text="The need for maintenance is: {}".format(prediction_text))
+    return render_template("model.html", prediction_text="The need for maintenance is: {}".format(prediction_text))
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
