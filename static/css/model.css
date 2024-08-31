@@ -1,6 +1,7 @@
 * {
     /* background-color: rgb(255, 255, 255); */
     color: rgb(0, 0, 0);
+    overflow: hidden;
     font-family: Helvetica, sans-serif;
     font-size: large;
     zoom: 1;
@@ -49,7 +50,7 @@ nav {
 
 #submit_single_data,
 #submit_upload_csv {
-    margin-top: 30px;
+    margin-top: 14px;
     padding: 10px;
     background-color: #f8a559;
     color: rgb(0, 0, 0);
@@ -119,7 +120,7 @@ nav {
 }
 
 form {
-    margin-top: 35px;
+    margin-top: 7px;
 }
 
 .dropdown {
@@ -139,9 +140,9 @@ form {
 .model {
     display: flex;
     flex-direction: column;
-    margin-left: 77px;
+    margin-left: 21px;
     background: white;
-    padding: 40px;
+    padding: 28px;
     border-radius: 30px;
 }
 
@@ -205,9 +206,9 @@ form {
 .upload_file {
     margin-right: 40px;
     background-color: white;
-    padding: 30px;
+    padding: 21px;
     border-radius: 30px;
-    height: 428px
+    height: 394px;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");

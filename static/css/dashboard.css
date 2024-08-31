@@ -55,7 +55,6 @@
     font-size: large;
     transition: color 250ms ease-out 78ms;
     color: #808080;
-    /* background-color: #A3E3FA; */
 }
 
 .options:hover {
@@ -97,11 +96,15 @@
     ;
 }
 
+.dash_title{
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
 .all_dashboard {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 76px;
 }
 
 .dashboard {
@@ -135,18 +138,22 @@
 
 .result {
     background-color: #f8a559;
-    height: 276px;
+    border-radius: 20px;
+    height: 242px;
     width: 719px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    backdrop-filter: blur(30px);
 }
 
 .temperature,
 .rpm_torque_result,
 .toolwear_type {
-    padding: 40px;
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -162,7 +169,7 @@
 .toolwear,
 .type {
     border: 2px solid;
-    padding: 10px;
+    padding: 13px;
     width: 276px;
     height: 276px;
     display: flex;
@@ -170,13 +177,19 @@
     align-content: center;
     justify-content: space-between;
     background-color: white;
+    border-radius: 20px;
 }
 
 #parameter_machine {
     position: relative;
     font-family: "Space Grotesk", sans-serif !important;
-    font-size: xx-large !important;
+    font-size: 100px !important;
 
+}
+#myChart{
+    height: 151px !important;
+    width: 431px !important;
+    background-color: white ;
 }
 
 .pie_chart {

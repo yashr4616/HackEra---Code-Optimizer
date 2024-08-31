@@ -26,6 +26,9 @@ def allowed_file(filename):
 def Home():
     return render_template("model.html")
 
+@app.route("/home", methods=["GET"])
+def Home_main():
+    return render_template("home.html")
 
 @app.route("/about", methods=["GET"])
 def about():
@@ -61,11 +64,43 @@ def predict():
         # Convert prediction to a readable format
         prediction_text = "Yes" if prediction[0] == 1 else "No"
 
+        dashboard_data = {
+            "air_temperature": air_temperature,
+            "process_temperature": process_temperature,
+            "rotational_speed": rotational_speed,
+            "torque": torque,
+            "tool_wear": tool_wear,
+            "machine_type": machine_type,
+            "prediction_text": prediction_text,
+        }
+
+
     except ValueError as e:
         # Handle conversion error or missing data
         return render_template("model.html", prediction_text="Input error: Please enter valid numeric values for all fields.")
 
-    return render_template("model.html", prediction_text="The need for maintenance is: {}".format(prediction_text))
+    return redirect(url_for('dashboard', **dashboard_data))
+
+
+@app.route('/dashboard')
+def dashboard():
+    air_temperature = request.args.get('air_temperature', type=float)
+    process_temperature = request.args.get('process_temperature', type=float)
+    rotational_speed = request.args.get('rotational_speed', type=int)
+    torque = request.args.get('torque', type=float)
+    tool_wear = request.args.get('tool_wear', type=int)
+    machine_type = request.args.get('machine_type', type=str)
+    prediction_text = request.args.get('prediction_text', type=str)
+
+    return render_template('dashboard.html', 
+                           air_temperature=air_temperature,
+                           process_temperature=process_temperature,
+                           rotational_speed=rotational_speed,
+                           torque=torque,
+                           tool_wear=tool_wear,
+                           machine_type=machine_type,
+                           prediction_text=prediction_text)
+
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -134,6 +169,21 @@ def download_file(filename):
     except Exception as e:
         print(f"Download error: {e}")
         return render_template("model.html", error="File not found or an error occurred while trying to download the file.")
+
+
+@app.route('/dashboard')
+def get_data():
+    data = {
+        "air_temperature": 298.6,
+        "process_temperature": 308.9,
+        "rotational_speed": 2986,
+        "torque": 30.9,
+        "tool_wear": 206,
+        "type": "Low",
+        "pie_chart": 21
+    }
+    return jsonify(data)
+
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=100)

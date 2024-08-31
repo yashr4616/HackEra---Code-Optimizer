@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    font-size: large;
+}
+
+
+
+.full_content{
+    background-image: url('../images/Home\ Page_updated.png');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/* nav_bar */
+.main_nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu-dropdown {
+    display: none;
+}
+
+.logo {
+    width: 200px;
+    height: 90px
+}
+
+.logo a img {
+    width: 120px;
+    height: 96px;
+    margin-left: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.options {
+    @font-face {
+        font-family: 'Helvetica';
+        src: local('Helvetica'), local('Helvetica-Regular'), url('/path/to/helvetica.woff') format('woff');
+
+    }
+
+    padding: 33px;
+    font-family: Helvetica,
+    sans-serif;
+    font-weight: bold;
+    font-size: large;
+    transition: color 250ms ease-out 78ms;
+    color: #808080;
+}
+
+.options:hover {
+    color: rgb(0, 0, 0);
+    background-color: #f8a559;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+}
+
+
+.home {
+    cursor: pointer;
+
+}
+
+.about {
+    cursor: pointer;
+}
+
+.service {
+    cursor: pointer;
+}
+
+
+
+/* content */
+
+.tech_stack{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.tech_name_left,.tech_name_right{
+    padding: 10px;
+    width: 341px;
+    height: 36px;
+    border: 2px solid #f6c79c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: white; */
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+}
+
+.tech_stack_right,.tech_stack_left{
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1171px;
+}
+
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tech_used{
+    width: 222px;
+    margin: 20px;
+    font-size: larger;
+}
+
+.app_used{
+    margin-top: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo_app{
+    display: flex;
+    gap: 37px;
+}
+
+.logo_app img{
+    width: 50px;
+    height: 50px;
+}

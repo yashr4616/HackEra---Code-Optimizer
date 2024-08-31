@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../static/css/dashboard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
 <body>
@@ -15,15 +16,11 @@
         <nav>
             <div class="main_nav">
                 <div class="logo">
-                    <a href=""><img src="../static/images/machine_maint.png" id="comp_logo"
-                            alt="logo"></a>
+                    <a href=""><img src="../static/images/machine_maint.png" id="comp_logo" alt="logo"></a>
                 </div>
                 <div class="menu">
                     <a href="/home">
                         <div class="options home">Home</div>
-                    </a>
-                    <a href="/dashboard">
-                        <div class="options home">Dashboard</div>
                     </a>
                     <a href="/about">
                         <div class="options about">About Us</div>
@@ -60,53 +57,85 @@
                 </div>
             </div>
         </nav>
+        <div class="dash_title">
+            <h2>Dashboard</h2>
+        </div>
         <section class="all_dashboard">
+
             <section class="dashboard">
                 <div class="temperature">
                     <div class="air_temperature">
                         <h3>Air Temperature</h3><br>
-                        <p id="parameter_machine">298.6</p>
+                        <p id="parameter_machine">{{ air_temperature }}</p>
                     </div>
                     <div class="process_temperature">
                         <h3>Process Temperature</h3><br>
-                        <p id="parameter_machine">308.9</p>
+                        <p id="parameter_machine">{{ process_temperature }}</p>
                     </div>
                 </div>
                 <div class="rpm_torque_result">
                     <div class="rpm_torque">
                         <div class="rpm">
                             <h3>Rotational Speed</h3><br>
-                            <p id="parameter_machine">2986</p>
+                            <p id="parameter_machine">{{ rotational_speed }}</p>
                         </div>
                         <div class="torque">
                             <h3>Torque</h3><br>
-                            <p id="parameter_machine">30.9</p>
+                            <p id="parameter_machine">{{ torque }}</p>
                         </div>
                     </div>
                     <div class="result">
-                        <div class="pie_chart">
-                            <div class="pie" style="--p:21"> 21%</div>
+                        <canvas id="myChart"></canvas>
+                        <div class="prediction">
+                            <h3>Prediction</h3><br>
+                            <p>The need for maintenance is: {{ prediction_text }}</p>
                         </div>
+
                     </div>
                 </div>
                 <div class="toolwear_type">
                     <div class="toolwear">
                         <h3>Tool Wear</h3><br>
-                        <p id="parameter_machine">206</p>
+                        <p id="parameter_machine">{{ tool_wear }}</p>
                     </div>
                     <div class="type">
                         <h3>Type</h3><br>
-                        <p id="parameter_machine">Low</p>
+                        <p id="parameter_machine">{{ machine_type }}</p>
                     </div>
                 </div>
             </section>
-            <!-- <section class="result">
-                <div class="pie_chart">
-                    <div class="pie" style="--p:21"> 21%</div>
-                </div>
-            </section> -->
         </section>
     </div>
+
+    <script>
+        const getRandomIntArrayInRange = (min, max, length) =>
+            Array.from({ length }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+        const xValues = getRandomIntArrayInRange(1100,1900,8)
+        
+        const yValues = getRandomIntArrayInRange(295,305,8)
+
+        new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,255,1.0)", borderColor: "rgba(0,0,255,0.1)",
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: { display: false },
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 10
+                    }
+                }
+            }
+        }); </script>
+    </script>
 </body>
 
 </html>

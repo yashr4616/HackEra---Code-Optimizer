@@ -93,8 +93,9 @@
     padding: 25px;
     border-radius: 20px;
     border: 2px solid;
-    width: 1191px;
+    width: 1234px;
     margin-top: 25px;
+    height: 507px;
 }
 
 .about_content{
@@ -107,10 +108,10 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -119,7 +120,17 @@
 .main_nav {
     display: flex;
     justify-content: space-between;
-    background-color: #A3E3FA;
+    /* background-color: #A3E3FA; */
+    height: 149px;
+}
+
+.full_content_page{
+    background-image: url('../images/Home\ Page.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 116vh;
 }
 
 .menu {
@@ -137,7 +148,8 @@
 
 .logo a img {
     width: 200px;
-    height: 90px
+    height: 180px;
+    margin-left: 30px;
 }
 
 .menu a{
@@ -155,10 +167,9 @@
     font-family: Helvetica,
     sans-serif;
     font-weight: bold;
-    font-size: large;
+    font-size: 29px;
     transition: color 250ms ease-out 78ms;
-    color: #808080;
-    background-color: #A3E3FA;
+    color: #4f4f4f;
 }
 
 .options:hover {
