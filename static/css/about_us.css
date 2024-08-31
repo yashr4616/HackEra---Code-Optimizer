@@ -1,5 +1,13 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    font-size: large;
+    zoom: 0.95;
+}
 
-.main{
+
+.main {
     display: flex;
     justify-content: center;
     margin-top: 40px;
@@ -78,4 +86,95 @@
 
 .social-links a:hover {
     color: #0c52a1;
+}
+
+.full_text{
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
+    border: 2px solid;
+    width: 1191px;
+    margin-top: 25px;
+}
+
+.about_content{
+    margin-top: 40px;
+    margin-right: 49px;
+    margin-left: 69px;
+}
+
+.full_content{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+
+    height: 100vh;
+}
+
+
+/* nav_bar */
+
+.main_nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #A3E3FA;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu-dropdown {
+    display: none;
+}
+
+.logo {
+    width: 200px;
+    height: 90px
+}
+
+.logo a img {
+    width: 200px;
+    height: 90px
+}
+
+.menu a{
+    text-decoration: none;
+}
+
+.options {
+    @font-face {
+        font-family: 'Helvetica';
+        src: local('Helvetica'), local('Helvetica-Regular'), url('/path/to/helvetica.woff') format('woff');
+
+    }
+
+    padding: 33px;
+    font-family: Helvetica,
+    sans-serif;
+    font-weight: bold;
+    font-size: large;
+    transition: color 250ms ease-out 78ms;
+    color: #808080;
+    background-color: #A3E3FA;
+}
+
+.options:hover {
+    color: rgb(0, 0, 0);
+}
+
+
+.home {
+    cursor: pointer;
+
+}
+
+.about {
+    cursor: pointer;
+}
+
+.service {
+    cursor: pointer;
 }

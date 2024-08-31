@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    font-size: large;
+}
+
+
+
+/* nav bar */
+
+.main_nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #A3E3FA;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu-dropdown {
+    display: none;
+}
+
+.logo {
+    width: 200px;
+    height: 90px
+}
+
+.logo a img {
+    width: 200px;
+    height: 90px
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.options {
+    @font-face {
+        font-family: 'Helvetica';
+        src: local('Helvetica'), local('Helvetica-Regular'), url('/path/to/helvetica.woff') format('woff');
+
+    }
+
+    padding: 33px;
+    font-family: Helvetica,
+    sans-serif;
+    font-weight: bold;
+    font-size: large;
+    transition: color 250ms ease-out 78ms;
+    color: #808080;
+    background-color: #A3E3FA;
+}
+
+.options:hover {
+    color: rgb(0, 0, 0);
+}
+
+
+.home {
+    cursor: pointer;
+
+}
+
+.about {
+    cursor: pointer;
+}
+
+.service {
+    cursor: pointer;
+}

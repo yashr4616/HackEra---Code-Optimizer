@@ -22,9 +22,15 @@ model_pipeline = pickle.load(open("predictive_maintenance_model.pkl", "rb"))
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route("/", methods=["GET"])
+@app.route("/model", methods=["GET"])
 def Home():
     return render_template("model.html")
+
+
+@app.route("/about", methods=["GET"])
+def about():
+    return render_template("about_us.html")
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
