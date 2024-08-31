@@ -26,7 +26,7 @@ def allowed_file(filename):
 def Home():
     return render_template("model.html")
 
-@app.route("/home", methods=["GET"])
+@app.route("/", methods=["GET"])
 def Home_main():
     return render_template("home.html")
 
