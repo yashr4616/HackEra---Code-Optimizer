@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UpKeep AI</title>
-    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/model.css">
 </head>
 
 <body>
@@ -57,45 +57,78 @@
                 </div>
             </div>
         </nav>
-
-
-        <section class="model">
+        <div class="content">
             <h2>Model</h2>
-            <form action="/predict" method="post">
-                <label for="air_temperature">Enter Air Temperature:</label>
-                <input type="text" id="air_temperature" name="air_temperature"><br><br>
+            <section class="model_main">
+                <section class="model">
 
-                <label for="process_temperature">Enter Process Temperature:</label>
-                <input type="text" id="process_temperature" name="process_temperature"><br><br>
+                    <form action="/predict" method="post">
+                        <label for="air_temperature">Enter Air Temperature:</label>
+                        <input type="text" id="air_temperature" name="air_temperature" required><br><br>
 
-                <label for="rotational_speed">Enter Rotational Speed:</label>
-                <input type="text" id="rotational_speed" name="rotational_speed"><br><br>
+                        <label for="process_temperature">Enter Process Temperature:</label>
+                        <input type="text" id="process_temperature" name="process_temperature" required><br><br>
 
-                <label for="torque">Enter Torque:</label>
-                <input type="text" id="torque" name="torque"><br><br>
+                        <label for="rotational_speed">Enter Rotational Speed:</label>
+                        <input type="text" id="rotational_speed" name="rotational_speed" required><br><br>
 
-                <label for="tool_wear">Enter Tool Wear:</label>
-                <input type="text" id="tool_wear" name="tool_wear"><br><br>
+                        <label for="torque">Enter Torque:</label>
+                        <input type="text" id="torque" name="torque" required><br><br>
 
-
-                <div class="machine_type">
-                    <label for="machine_type">Enter Type:</label>
-                    <input type="radio" id="high" name="machine_type" value="H">High<br><br>
-                    <input type="radio" id="medium" name="machine_type" value="M">Medium<br><br>
-                    <input type="radio" id="low" name="machine_type" value="L">Low<br><br>
-                </div>
-
-                <button type="submit">Submit</button>
-            </form>
+                        <label for="tool_wear">Enter Tool Wear:</label>
+                        <input type="text" id="tool_wear" name="tool_wear" required><br><br>
 
 
-            {% if prediction_text %}
-            <h2>{{ prediction_text }}</h2>
-            {% endif %}
-        </section>
+                        <div class="machine_type">
+                            <label for="machine_type">Enter Type:</label>
+                            <div class="options_machinetype">
+                                <input type="radio" id="high" name="machine_type" value="H"><label
+                                    for="High">High</label><br><br>
+                                <input type="radio" id="medium" name="machine_type" value="M"><label
+                                    for="Medium">Medium</label><br><br>
+                                <input type="radio" id="low" name="machine_type" value="L"><label
+                                    for="Low">Low</label><br><br>
+                            </div>
+
+                        </div>
+
+                        <button id="submit_single_data" type="submit">Submit</button>
+                    </form>
+
+
+                    <!-- {% if prediction_text %}
+                <h2>{{ prediction_text }}</h2>
+                {% endif %} -->
+                </section>
+                <div id="center_line"></div>
+                <section>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+
+                        <div class="container">
+                            <div class="card">
+                              <h3>Upload Files</h3>
+                              <div class="drop_box">
+                                <header>
+                                  <h4>Select File here</h4>
+                                </header>
+                                <p>Files Supported: CSV</p>
+                                <input type="file" hidden accept=".csv" id="upload_csv" style="display:none;">
+                                <label for="upload_csv" class="btn">Choose File</label>
+                                <p id="file_name">No file chosen</p>
+                              </div>
+                          
+                            </div>
+                          </div>
+                        <button type="submit" id="submit_upload_csv" value="Upload">Submit</button>
+                    </form>
+                </section>
+            </section>
+        </div>
+
+
     </div>
 
-    <script src="../static/js/index.js"></script>
+    <script src="../static/js/model.js"></script>
 </body>
 
 </html>
