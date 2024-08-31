@@ -1,26 +1,38 @@
 * {
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     color: rgb(0, 0, 0);
     font-family: Helvetica, sans-serif;
     font-size: large;
-    zoom: 0.95;
+    zoom: 1;
     padding: 0;
     margin: 0;
+
 }
-nav{
-    background-color: #A3E3FA;
+
+nav {
+    /* background-color: #A3E3FA; */
+
+}
+
+
+.main {
+    background-image: url('../images/model_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 100vh;
 }
 
 .main_nav {
-    background-color: #A3E3FA;
+    /* background-color: #A3E3FA; */
     margin-left: 5px;
     width: 97%;
     display: flex;
     top: 0px;
 }
 
-.main_nav a{
-    background-color:#A3E3FA
+.main_nav a {
+    /* background-color:#A3E3FA */
 }
 
 
@@ -28,19 +40,18 @@ nav{
     display: flex;
     width: 100%;
     justify-content: flex-end;
-    background-color: #A3E3FA;
 }
 
 #comp_logo {
-    width: 200px;
-    height: 90px;
-    background-color: #A3E3FA;
+    width: 146px;
+    height: 135px;
 }
 
-#submit_single_data ,#submit_upload_csv{
+#submit_single_data,
+#submit_upload_csv {
     margin-top: 30px;
     padding: 10px;
-    background-color: #A3E3FA;
+    background-color: #f8a559;
     color: rgb(0, 0, 0);
     border-radius: 20px;
     width: 121px;
@@ -60,7 +71,7 @@ nav{
     font-size: large;
     transition: color 250ms ease-out 78ms;
     color: #808080;
-    background-color: #A3E3FA;
+    /* background-color: #A3E3FA; */
 }
 
 
@@ -91,6 +102,13 @@ nav{
 
 .options:hover {
     color: rgb(0, 0, 0);
+    background-color: #f8a559;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
 }
 
 .nav_btn {
@@ -100,7 +118,7 @@ nav{
     cursor: pointer;
 }
 
-form{
+form {
     margin-top: 35px;
 }
 
@@ -112,7 +130,7 @@ form{
     display: none;
 }
 
-.model_name_type{
+.model_name_type {
     font-size: 25px;
 }
 
@@ -121,6 +139,10 @@ form{
 .model {
     display: flex;
     flex-direction: column;
+    margin-left: 77px;
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
 }
 
 
@@ -129,28 +151,31 @@ form{
     gap: 16px;
 }
 
-.content{
-    margin-top: 45px;
+.content {
+    margin-top: 13px;
+
 }
 
 .model_main {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 245px;
-    padding-top: 47px
-    
+    padding-top: 25px
 }
 
-#air_temperature, #process_temperature, #rotational_speed, #torque, #tool_wear{
+#air_temperature,
+#process_temperature,
+#rotational_speed,
+#torque,
+#tool_wear {
     background-color: white;
     border-radius: 10px;
     width: 180px;
     height: 25px;
     color: black
-
 }
 
-#center_line{
+#center_line {
     width: 6px;
     height: 547px;
     background-color: rgb(0, 0, 0) !important;
@@ -159,22 +184,30 @@ form{
     top: -40px
 }
 
-.options_machinetype{
+.options_machinetype {
     display: flex;
     gap: 8px;
 }
 
 
-.machine_type label{
+.machine_type label {
     display: flex;
     align-content: center;
     flex-wrap: wrap
 }
 
 
-#model_name{
+#model_name {
     font-size: 55px;
     margin-left: 48px;
+}
+
+.upload_file {
+    margin-right: 40px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    height: 428px
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
@@ -182,19 +215,19 @@ form{
 
 
 .container {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  /* background-color: #fcfcfc; */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    /* background-color: #fcfcfc; */
 }
 
 .card {
-  border-radius: 10px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
-  width: 600px;
-  height: 260px;
-  background-color: #ffffff;
-  padding: 10px 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    width: 360px;
+    height: 234px;
+    background-color: #ffffff;
+    padding: 10px 30px 40px
 }
 
 .card h3 {
@@ -202,63 +235,65 @@ form{
     font-weight: 600;
     background-color: white;
     color: black;
-  
+
 }
 
 .drop_box {
-  margin: 10px 0;
-  padding: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border: 3px dotted #a3a3a3;
-  border-radius: 5px;
-  background-color: white;
+    margin: 10px 0;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px dotted #a3a3a3;
+    border-radius: 5px;
+    background-color: white;
+    height: 134px;
 }
 
 .drop_box h4 {
-  font-size: 16px;
-  font-weight: 400;
-  color: #2e2e2e;
-  background-color: white;
-  margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #2e2e2e;
+    background-color: white;
+    margin: 0;
 }
 
 .drop_box p {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-size: 12px;
-  color: #a3a3a3;
-  background-color: white;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #a3a3a3;
+    background-color: white;
 }
 
 .btn {
-  text-decoration: none;
-  background-color: #005af0;
-  color: #ffffff;
-  padding: 10px 20px;
-  border: none;
-  outline: none;
-  transition: 0.3s;
+    text-decoration: none;
+    background-color: #f8a559;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
 }
 
-.btn:hover{
-  text-decoration: none;
-  background-color: #ffffff;
-  color: #005af0;
-  padding: 10px 20px;
-  border: none;
-  outline: 1px solid #010101;
+.btn:hover {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #f8a559;
+    padding: 10px 20px;
+    border: none;
+    outline: 1px solid #010101;
 }
+
 .form input {
-  margin: 10px 0;
-  width: 100%;
-  background-color: #e2e2e2;
-  border: none;
-  outline: none;
-  padding: 12px 20px;
-  border-radius: 4px;
+    margin: 10px 0;
+    width: 100%;
+    background-color: #e2e2e2;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    border-radius: 4px;
 }
 
 
